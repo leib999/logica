@@ -1,0 +1,22 @@
+<meta charset="UTF-8">
+
+<h1> Consumo de combustível </h1>
+
+<script>
+	var vol_tanque = 40; //litros
+	var dist = 170; //km entre rio e friburgo
+	
+	var distancia_gasolina = 480;
+	var km_por_litro_gas = distancia_gasolina/vol_tanque;
+	var litro_gas = 5.19;
+	var custo_viagem_gas = dist * litro_gas;
+	
+	var distancia_alcool = 300;
+	var km_por_litro_alc = distancia_alcool/vol_tanque;
+	var litro_alc = 3.89;
+	var custo_viagem_alc = dist * litro_alc;
+
+	document.write("Com gasolina, o carro rende " + km_por_litro_gas + " km/l. Com a gasolina a R$" + litro_gas + " a viagem sai por " + custo_viagem_gas);
+	document.write("<br>");
+	document.write("Com álcool, o carro rende " + km_por_litro_alc + " km/l. Com a alcool a R$" + litro_alc + " a viagem sai por " + custo_viagem_alc);
+</script>
