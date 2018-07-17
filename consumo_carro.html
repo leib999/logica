@@ -9,12 +9,12 @@
 	var distancia_gasolina = 480;
 	var km_por_litro_gas = distancia_gasolina/vol_tanque;
 	var litro_gas = 5.19;
-	var custo_viagem_gas = dist * litro_gas;
+	var custo_viagem_gas = Math.round((dist / km_por_litro_gas) * litro_gas);
 	
 	var distancia_alcool = 300;
 	var km_por_litro_alc = distancia_alcool/vol_tanque;
 	var litro_alc = 3.89;
-	var custo_viagem_alc = dist * litro_alc;
+	var custo_viagem_alc = Math.round((dist / km_por_litro_alc) * litro_alc);
 
 	document.write("Com gasolina, o carro rende " + km_por_litro_gas + " km/l. Com a gasolina a R$" + litro_gas + " a viagem sai por " + custo_viagem_gas);
 	document.write("<br>");
