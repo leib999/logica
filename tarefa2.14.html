@@ -1,10 +1,18 @@
 <meta charset="UTF-8">
 
 <script>
+	function pulaLinha() {
+		document.write("<br><br>");
+	}
+
+	function mostra(frase) {
+		document.write(frase);
+		pulaLinha();
+	}
 	var ano = 2018;
-    document.write("Flávio nasceu em " + (ano - 39) + "<br>");
-    document.write("Joaquim nasceu em " + (ano - 20) + "<br>");
-    document.write("Barney nasceu em " + (ano - 40));
-	document.write("<br>");
-	document.write("Se em " + ano + " Leib tem " + (ano - 1989) + " anos, em 2050 Leib terá " + (2050 - 1989) + " anos.");
+    mostra("Flávio nasceu em " + (ano - 39) + "<br>");
+    mostra("Joaquim nasceu em " + (ano - 20) + "<br>");
+    mostra("Barney nasceu em " + (ano - 40));
+	mostra("<br>");
+	mostra("Se em " + ano + " Leib tem " + (ano - 1989) + " anos, em 2050 Leib terá " + (2050 - 1989) + " anos.");
 </script>
