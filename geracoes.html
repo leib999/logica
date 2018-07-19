@@ -1,11 +1,19 @@
 <meta charset="UTF-8">
 
 <script>
+	function pulaLinha() {
+		document.write("<br>");
+	}
+
+	function mostra(frase) {
+		document.write(frase);
+		pulaLinha();
+	}
 	var n_gen;
 	var ano = 2018;
 	var duracao_gen = 28;
 	n_gen = (ano - 1500)/duracao_gen;
-	document.write("O número de gerações é " + Math.round(n_gen));
+	mostra("O número de gerações é " + Math.round(n_gen));
 
 
 
