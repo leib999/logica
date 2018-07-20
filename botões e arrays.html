@@ -8,7 +8,6 @@
 	function comp(){
 		var input = document.querySelector("input");
 		var num = parseInt(input.value);
-		alert(num);
 		var num_primos = [2, 3, 5, 7, 11, 13, 17, 23, 29, 31, 37, 41, 43, 47];
 		var status = 0; //indica se num é primo ou não após o for
 		for(var i = 0; i < 14; i++){
@@ -19,7 +18,7 @@
 			}
 		}
 		if (status == 0){
-			alert("Este número tem divisores");
+			alert("Este número não é um primo menor que 50");
 		}
 		input.value = "";
 		input.focus();
