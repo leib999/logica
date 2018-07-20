@@ -10,7 +10,7 @@
 		var num = parseInt(input.value);
 		var num_primos = [2, 3, 5, 7, 11, 13, 17, 23, 29, 31, 37, 41, 43, 47];
 		var status = 0; //indica se num é primo ou não após o for
-		for(var i = 0; i < 14; i++){
+		for(var i = 0; i < num_primos.length; i++){
 			if(num == num_primos[i]) {
 				alert(input.value + " é um número primo menor que 50!");
 				status = 1;
