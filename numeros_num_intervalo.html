@@ -7,12 +7,15 @@
 		return saida;
 	}
 
-
-	//var qtd_num = parseInt(prompt("Digite a quantidade de números desejada"));
+	var i = 0;
+	var qtd_num = parseInt(prompt("Digite a quantidade de números desejada"));
 	var menor = parseInt(prompt("Digite o menor número do intervalo"));
 	var maior = parseInt(prompt("Digite o maior número do intervalo"));
-	document.write(aleatorio_entre(menor, maior));
 
+	while(i < qtd_num) {
+		document.write(aleatorio_entre(menor, maior));
+		i = i + 1;
+	}
 
 
 </script>
