@@ -1,0 +1,18 @@
+<meta charset="UTF-8">
+
+<script>
+	function aleatorio_entre (low, high) {
+		var rand = Math.random();
+		var saida = (high - low)*rand + low;
+		return saida;
+	}
+
+
+	//var qtd_num = parseInt(prompt("Digite a quantidade de números desejada"));
+	var menor = parseInt(prompt("Digite o menor número do intervalo"));
+	var maior = parseInt(prompt("Digite o maior número do intervalo"));
+	document.write(aleatorio_entre(menor, maior));
+
+
+
+</script>
