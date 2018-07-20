@@ -6,8 +6,11 @@
 <script>
 
 	function comp(){
+		var input = document.querySelector("input");
+		var num = parseInt(input.value);
+		alert(num);
 		var num_primos = [2, 3, 5, 7, 11, 13, 17, 23, 29, 31, 37, 41, 43, 47];
-		if(input.value == num_primos) {
+		if(num == num_primos) {
 			alert(input.value + " é um número primo menor que 50!");
 		} else {
 			alert("Este número tem divisores.");
@@ -15,7 +18,7 @@
 		input.value = "";
 		input.focus();
 	}
-	var input = document.querySelector("input");
+	
 	var button = document.querySelector("button");
 	button.onclick = comp;
 	
