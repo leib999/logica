@@ -1,0 +1,46 @@
+<canvas width="800" height="800"></canvas>
+
+<script>
+	
+	function desenhar_triangulo (x, y, cor){ //desenha um triangulo com as coordenadas especificadas nos vetores "x" e "y", com a cor "cor"
+		pincel.fillStyle = cor;
+		pincel.beginPath();
+		pincel.moveTo(x[0], y[0]);
+		pincel.lineTo(x[1], y[1]);
+		pincel.lineTo(x[2], y[2]);
+		pincel.fill();
+	}
+	
+	function iterar(x, y, f){
+		if (f == 0){
+			desenhar_triangulo(x, y, "black");
+		} else {
+			f--; //reduz o contador de iterações
+			//cria os vetores com as coordenadas de 3 triangulos
+			var x1 = [x[0], x[0], ((x[2]-x[1])/2)];
+			var y1 = [y[0], ((y[1]-y[0])/2)
+			var x2
+			var y2
+			var x3
+			var y3
+			iterar(x, y, f);
+			iterar(x, y, f);
+			iterar(x, y, f);
+	}
+
+	var tela = document.querySelector('canvas');
+	var pincel = tela.getContext('2d');
+	
+	var largura = 800;
+	var altura = 800;
+	
+	pincel.fillStyle = 'black';
+	pincel.fillRect(0, 0, 800, 800);
+	x_t1 = [0, 0, largura]; //coordenadas x do triangulo 1, começando pelo ponto superior e girando em sentido antihorário
+	y_t1 = [0, altura, altura];  //coordenadas y do triangulo 1, começando pelo ponto superior e girando em sentido antihorário
+	desenhar_triangulo(x_t1, y_t1, "white"); //triangulo inicial t1: ocupa metade do canvas
+	
+	
+	
+	
+</script>
