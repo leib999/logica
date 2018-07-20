@@ -1,0 +1,22 @@
+<meta charset="UTF-8">
+
+<input/>
+<button>Comparar</button>
+
+<script>
+
+	function comp(){
+		var num_primos = [2, 3, 5, 7, 11, 13, 17, 23, 29, 31, 37, 41, 43, 47];
+		if(input.value == num_primos) {
+			alert(input.value + " é um número primo menor que 50!");
+		} else {
+			alert("Este número tem divisores.");
+		}
+		input.value = "";
+		input.focus();
+	}
+
+	var button = document.querySelector("button");
+	button.onclick = comp;
+	
+</script>
