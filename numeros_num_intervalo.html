@@ -1,22 +1,31 @@
 <meta charset="UTF-8">
 
+<input/>
+<button>Gerar</button>
+
 <script>
 	function aleatorio_entre (low, high) {
 		var rand = Math.random();
 		var saida = (high - low)*rand + low;
 		return saida;
 	}
-
-	var i = 0;
-	var qtd_num = parseInt(prompt("Digite a quantidade de números desejada"));
-	var menor = parseInt(prompt("Digite o menor número do intervalo"));
-	var maior = parseInt(prompt("Digite o maior número do intervalo"));
-
-	while(i < qtd_num) {
-		document.write(aleatorio_entre(menor, maior));
-		document.write("<br>");
-		i = i + 1;
+	
+	function gerar_numeros() {
+		var input = document.querySelector("input");
+		var qtd_num = parseInt(input.value);
+		alert(qtd_num);
+		var menor = parseInt(prompt("Digite o menor número do intervalo"));
+		var maior = parseInt(prompt("Digite o maior número do intervalo"));
+		var i = 0;
+		while(i < qtd_num) {
+			document.write(aleatorio_entre(menor, maior));
+			document.write("<br>");
+			i++;
+		}
 	}
+
+	var button = document.querySelector("button");
+	button.onclick = gerar_numeros;
 
 
 </script>
