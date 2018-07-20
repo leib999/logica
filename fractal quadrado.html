@@ -17,15 +17,16 @@
 		} else {
 			f--; //reduz o contador de iterações
 			//cria os vetores com as coordenadas de 3 triangulos
-			var x1 = [x[0], x[0], ((x[2]-x[1])/2)];
-			var y1 = [y[0], ((y[1]-y[0])/2)
-			var x2
-			var y2
-			var x3
-			var y3
-			iterar(x, y, f);
-			iterar(x, y, f);
-			iterar(x, y, f);
+			var x1 = [x[0], x[0], ((x[2]-x[0])/2)];
+			var y1 = [y[0], ((y[2]-y[0])/2), ((y[2]-y[0])/2)];
+			var x2 = [x[0], x[0], ((x[2]-x[0])/2)];
+			var y2 = [((y[2]-y[0])/2), y[2], y[2]];
+			var x3 = [((x[2]-x[0])/2), ((x[2]-x[0])/2), x[2]];
+			var y3 = [((y[2]-y[0])/2), y[2], y[2]];
+			iterar(x1, y1, f);
+			iterar(x2, y2, f);
+			iterar(x3, y3, f);
+		}
 	}
 
 	var tela = document.querySelector('canvas');
@@ -39,8 +40,6 @@
 	x_t1 = [0, 0, largura]; //coordenadas x do triangulo 1, começando pelo ponto superior e girando em sentido antihorário
 	y_t1 = [0, altura, altura];  //coordenadas y do triangulo 1, começando pelo ponto superior e girando em sentido antihorário
 	desenhar_triangulo(x_t1, y_t1, "white"); //triangulo inicial t1: ocupa metade do canvas
-	
-	
-	
+	iterar(x_t1, y_t1, 0); //gera o fractal	
 	
 </script>
