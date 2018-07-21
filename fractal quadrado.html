@@ -39,7 +39,7 @@
 
 	var tela = document.querySelector('canvas');
 	var pincel = tela.getContext('2d');
-	
+	var iter = parseInt(prompt("Digite o número de iterações (max: 7)"));
 	var largura = 800;
 	var altura = 800;
 	
@@ -48,6 +48,6 @@
 	x_t1 = [0, 0, largura]; //coordenadas x do triangulo 1, começando pelo ponto superior e girando em sentido antihorário
 	y_t1 = [0, altura, altura];  //coordenadas y do triangulo 1, começando pelo ponto superior e girando em sentido antihorário
 	desenhar_triangulo(x_t1, y_t1, "white"); //triangulo inicial t1: ocupa metade do canvas
-	iterar(x_t1, y_t1, 8); //gera o fractal	
+	iterar(x_t1, y_t1, iter); //gera o fractal	
 	
 </script>
