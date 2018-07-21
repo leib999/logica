@@ -12,22 +12,22 @@
 	}
 	
 	function iterar(x, y, f){
-		var tx = [x[0], ((x[2]-x[0])/2), ((x[2]-x[0])/2)];
-		var ty = [((y[2]-y[0])/2), y[2], ((y[2]-y[0])/2)];
+		var tx = [x[0], ((x[2]+x[0])/2), ((x[2]+x[0])/2)];
+		var ty = [((y[2]+y[0])/2), y[2], ((y[2]+y[0])/2)];
 		desenhar_triangulo(tx, ty, "black");
 		if (f > 0){
 			f--; //reduz o contador de iterações
 			//cria os vetores com as coordenadas dos próximos 3 triangulos
-			var x1 = [x[0], x[0], ((x[2]-x[0])/2)];
-			var y1 = [y[0], ((y[2]-y[0])/2), ((y[2]-y[0])/2)];
-			var x2 = [x[0], x[0], ((x[2]-x[0])/2)];
+			var x1 = [x[0], x[0], ((x[2]+x[0])/2)];
+			var y1 = [y[0], ((y[2]+y[0])/2), ((y[2]+y[0])/2)];
+			var x2 = [x[0], x[0], ((x[2]+x[0])/2)];
 			
 			
-			var y2 = [((y[2]-y[0])/2), y[2], y[2]];
+			var y2 = [((y[2]+y[0])/2), y[2], y[2]];
 			
 			
-			var x3 = [((x[2]-x[0])/2), ((x[2]-x[0])/2), x[2]];
-			var y3 = [((y[2]-y[0])/2), y[2], y[2]];
+			var x3 = [((x[2]+x[0])/2), ((x[2]+x[0])/2), x[2]];
+			var y3 = [((y[2]+y[0])/2), y[2], y[2]];
 			//iterar(x1, y1, f);
 			//alert("iterou");
 			iterar(x2, y2, f);
