@@ -1,3 +1,5 @@
+<input/>
+<button>Gerar</button>
 <canvas width="800" height="800"></canvas>
 
 <script>
@@ -9,6 +11,12 @@
 		pincel.lineTo(x[1], y[1]);
 		pincel.lineTo(x[2], y[2]);
 		pincel.fill();
+	}
+	
+	function gerar(){
+		var input = document.querySelector("input");
+		var iter = parseInt(input.value);
+		iterar(x_t1, y_t1, iter); //gera o fractal
 	}
 	
 	function iterar(x, y, f){
@@ -36,18 +44,18 @@
 			//alert("iterou");
 		}
 	}
-
+	
 	var tela = document.querySelector('canvas');
 	var pincel = tela.getContext('2d');
-	var iter = parseInt(prompt("Digite o número de iterações (max: 7)"));
 	var largura = 800;
 	var altura = 800;
 	
 	pincel.fillStyle = 'green';
 	pincel.fillRect(0, 0, largura, altura);
 	x_t1 = [0, 0, largura]; //coordenadas x do triangulo 1, começando pelo ponto superior e girando em sentido antihorário
-	y_t1 = [0, altura, altura];  //coordenadas y do triangulo 1, começando pelo ponto superior e girando em sentido antihorário
+	y_t1 = [0, altura, altura];  //coordenadas y do triangulo 1, começando pelo ponto superior e girando em sentido antihorário	
 	desenhar_triangulo(x_t1, y_t1, "white"); //triangulo inicial t1: ocupa metade do canvas
-	iterar(x_t1, y_t1, iter); //gera o fractal	
+	var button = document.querySelector("button");
+	button.onclick = gerar;
 	
 </script>
