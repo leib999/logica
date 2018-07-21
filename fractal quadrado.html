@@ -18,15 +18,22 @@
 		if (f > 0){
 			f--; //reduz o contador de iterações
 			//cria os vetores com as coordenadas dos próximos 3 triangulos
-			var x1 = [tx[0], tx[0], tx[2]];
-			var y1 = [ty[0], ty[2], ty[2]];
-			var x2 = [tx[0], tx[0], stx[2]];
-			var y2 = [ty[2], ty[2], ty[2]];
-			var x3 = [tx[2], tx[2], tx[2]];
-			var y3 = [ty[2], ty[2], ty[2]];
-			iterar(x1, y1, f);
+			var x1 = [x[0], x[0], ((x[2]-x[0])/2)];
+			var y1 = [y[0], ((y[2]-y[0])/2), ((y[2]-y[0])/2)];
+			var x2 = [x[0], x[0], ((x[2]-x[0])/2)];
+			
+			
+			var y2 = [((y[2]-y[0])/2), y[2], y[2]];
+			
+			
+			var x3 = [((x[2]-x[0])/2), ((x[2]-x[0])/2), x[2]];
+			var y3 = [((y[2]-y[0])/2), y[2], y[2]];
+			//iterar(x1, y1, f);
+			//alert("iterou");
 			iterar(x2, y2, f);
-			iterar(x3, y3, f);
+			//alert("iterou");
+			//iterar(x3, y3, f);
+			//alert("iterou");
 		}
 	}
 
