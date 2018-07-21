@@ -1,8 +1,8 @@
 <form>
 Insira um número entre 0 e 8:
-<input type = "number" name = "iteracoes" value = "6" min = "0" max = "8">
+<input type = "number" value = "6" min = "0" max = "8">
 </form>
-<button id = "botao">Gerar</button>
+<button id = "botao" onclick = gerar() type = "button">Gerar</button>
 <canvas id = "meu_canvas" width="800" height="800"></canvas>
 
 <script>
@@ -58,11 +58,10 @@ Insira um número entre 0 e 8:
 	pincel.fillStyle = "green";
 	desenhar_triangulo(x_t2, y_t2, "green");
 	var button = document.getElementById("botao");
-	button.onclick = gerar;
-	var input = document.querySelector("iteracoes");
+	var input = document.querySelector("input");
 	input.addEventListener("keyup", function(event) {
 		if (event.keyCode === 13) {
-			document.getElementById("botao").click();
+			button.click();
 		}
 	});
 	
