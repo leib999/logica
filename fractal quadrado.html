@@ -1,8 +1,6 @@
-<form>
-Insira um número entre 0 e 8:
-<input type = "number" value = "6" min = "0" max = "8">
-</form>
-<button id = "botao" onclick = gerar() type = "button">Gerar</button>
+<h1>Insira um número entre 0 e 10:</h1>
+<input type = "number" autofocus min = 0 max = 10>
+<button id = "botao" onclick = gerar()>Gerar</button>
 <canvas id = "meu_canvas" width="800" height="800"></canvas>
 
 <script>
@@ -17,14 +15,14 @@ Insira um número entre 0 e 8:
 	}
 	
 	function gerar(){
+		//alert(it);
+		var input = document.querySelector("input");
+		var iter = parseInt(input.value);
 		x_t1 = [0, 0, largura]; //coordenadas x do triangulo 1, começando pelo ponto superior e girando em sentido antihorário
 		y_t1 = [0, altura, altura];  //coordenadas y do triangulo 1, começando pelo ponto superior e girando em sentido antihorário	
-		desenhar_triangulo(x_t1, y_t1, "white"); //triangulo inicial t1: ocupa metade do canvas
 		pincel.fillStyle = "green";
 		pincel.fillRect(0, 0, largura, altura);
 		desenhar_triangulo(x_t1, y_t1, "white"); //triangulo inicial t1: ocupa metade do canvas
-		var input = document.querySelector("input");
-		var iter = parseInt(input.value);
 		iterar(x_t1, y_t1, iter); //chama a função recursiva que gera o fractal
 	}
 	
@@ -48,6 +46,13 @@ Insira um número entre 0 e 8:
 		}
 	}
 	
+	function confirmar(){
+		if (window.confirm("Valores maiores que 10 podem travar seu equipamento. Deseja continuar?")){
+			gerar();
+		} else {
+			alert("Sábia decisão.");
+		}
+	}
 	var tela = document.getElementById("meu_canvas");
 	var pincel = tela.getContext('2d');
 	var largura = 800;
@@ -57,12 +62,15 @@ Insira um número entre 0 e 8:
 	var y_t2 = [0, altura, 0];
 	pincel.fillStyle = "green";
 	desenhar_triangulo(x_t2, y_t2, "green");
-	var button = document.getElementById("botao");
 	var input = document.querySelector("input");
-	input.addEventListener("keyup", function(event) {
-		if (event.keyCode === 13) {
-			button.click();
+	input.onkeyup = function(event){
+		if (event.keyCode == 13 || event.which == 13){
+			var iter = parseInt(input.value);
+			if(iter > 10){
+				confirmar();
+			} else {
+				gerar();
+			}
 		}
-	});
-	
+	}
 </script>
