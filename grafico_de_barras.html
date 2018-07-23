@@ -1,10 +1,10 @@
 <meta charset="UTF-8">
-<h1> Gráficos de barras </h1>
+<h3> Gráficos de barras </h3>
 <canvas id = "meu_canvas" width="800" height="800"></canvas>
 
 <script>
 	function desenhaTexto (string, origem) {
-		pincel.font='15px Georgia';
+		pincel.font='20px Times New Roman';
         pincel.fillStyle='black';
         pincel.fillText(string, origem[0], origem[1]);
 	}
@@ -24,17 +24,17 @@
 		return v;
 	}
 	
-	function desenhaGraficobarras (dados, origem, tamanho, cor) {
+	function desenhaGraficobarras (nome, dados, origem, tamanho, cor) {
 		if (dados.length != cor.length) {
 			alert("Erro! Vetor de dados de tamanho diferente do vetor de cores");
 		} else {
-			var or = [origem[0], 0]; //posicao da origem dos retangulos
+			desenhaTexto(nome, [origem[0]+30, 50]);
 			var tm = [tamanho[0], 0]; //tamanho dos retangulos
 			dados = porcentagem_para_decimal(dados);
 			for (var i = 0; i < dados.length; i++) {
-				tm[1] = dados[i] * tamanho[1]; //t_y é proporcional ao percentual
-				desenhaRetangulo(or, tm, cor[i]);
-				or[1] += dados[i] * tamanho[1]; //a origem do proximo retangulo vai aumentando para representar o empilhamento
+				tm[1] = dados[i] * tamanho[1]; //tm[1] é proporcional ao percentual
+				desenhaRetangulo(origem, tm, cor[i]);
+				origem[1] += dados[i] * tamanho[1]; //a origem do proximo retangulo vai aumentando para representar o empilhamento
 			}
 		}
 	}
@@ -42,17 +42,13 @@
 	var tela = document.getElementById("meu_canvas");
 	var pincel = tela.getContext('2d');
 
-	inicio = [30, 30];
+	pos_barra1 = [30, 70];
+	pos_barra2 = [250, 70];
 	dimensoes = [100, 400];
-	//desenhaRetangulo(inicio, dimensoes, 'blue')
-	//desenhaTexto ('Funciona!', inicio)
 	porcentagens2015 = [50, 25, 20, 5];
-	//porcentagens2015 = porcentagem_para_decimal(porcentagens2015);
-	//for(var i = 0; i < porcentagens2015.length; i++) {
-	//	document.write("porcentagens2015[" + i + "] = " + porcentagens2015[i] + "<br>");
-	//}
-	//
+	porcentagens2016 = [65, 20, 13, 2];
 	cores = ['blue', 'green', 'yellow', 'red'];
-	desenhaGraficobarras (porcentagens2015, inicio, dimensoes, cores);
+	desenhaGraficobarras ("2015", porcentagens2015, pos_barra1, dimensoes, cores);
+	desenhaGraficobarras ("2016", porcentagens2016, pos_barra2, dimensoes, cores);
 	
 </script>
