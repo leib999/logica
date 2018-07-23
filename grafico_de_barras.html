@@ -13,19 +13,45 @@
 		pincel.fillStyle = cor;
         pincel.fillRect(origem[0], origem[1], tamanho[0], tamanho[1]);
         pincel.strokeStyle='black';
-        pincel.strokeRect(x,y, largura, altura);
+        pincel.strokeRect(origem[0], origem[1], tamanho[0], tamanho[1]);
 	}
 	
-	function desenhaGraficobarras () {
-		
+	//divide todos os elementos de um vetor por 100
+	function porcentagem_para_decimal (v) {
+		for(var i = 0; i < v.length; i++) {
+			v[i] /= 100;
+		}
+		return v;
 	}
+	
+	//function desenhaGraficobarras (dados, origem, tamanho, cor) {
+	//	if (dados.length() != cor.length()) {
+	//		alert("Erro! Vetor de dados de tamanho diferente do vetor de cores");
+	//	} else {
+	//		var y = 0; //posicao vertical da origem do retangulo
+	//		dados = porcentagem_para_decimal(dados);
+	//		for (var i = 0; i < dados.length(); i++) {
+	//			
+	//			pincel.fillStyle = cor[i];
+	//			pincel.fillRect()
+	//		}
+	//	}
+	//}
 	
 	var tela = document.getElementById("meu_canvas");
 	var pincel = tela.getContext('2d');
 
 	inicio = [10, 10];
-	//dimensoes = [10, 100];
+	dimensoes = [10, 100];
 	//desenhaRetangulo(inicio, dimensoes, 'blue')
-	desenhaTexto ('Funciona!', inicio)
+	//desenhaTexto ('Funciona!', inicio)
+	porcentagens2015 = [50, 25, 20, 5];
+	porcentagens2015 = porcentagem_para_decimal(porcentagens2015);
+	for(var i = 0; i < porcentagens2015.length; i++) {
+		document.write("porcentagens2015[" + i + "] = " + porcentagens2015[i] + "<br>");
+	}
+	
+	//cores = ['blue', 'green', 'yellow', 'red'];
+	//desenhaGraficobarras (porcentagens2015, inicio, dimensoes, cores);
 	
 </script>
