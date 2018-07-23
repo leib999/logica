@@ -3,8 +3,10 @@
 <canvas id = "meu_canvas" width="800" height="800"></canvas>
 
 <script>
-	function desenhaTexto () {
-
+	function desenhaTexto (string, origem) {
+		pincel.font='15px Georgia';
+        pincel.fillStyle='black';
+        pincel.fillText(string, origem[0], origem[1]);
 	}
 	
 	function desenhaRetangulo (origem, tamanho, cor) {
@@ -22,7 +24,8 @@
 	var pincel = tela.getContext('2d');
 
 	inicio = [10, 10];
-	dimensoes = [10, 100];
-	desenhaRetangulo(inicio, dimensoes, 'blue')
+	//dimensoes = [10, 100];
+	//desenhaRetangulo(inicio, dimensoes, 'blue')
+	desenhaTexto ('Funciona!', inicio)
 	
 </script>
