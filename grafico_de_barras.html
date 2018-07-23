@@ -24,19 +24,20 @@
 		return v;
 	}
 	
-	//function desenhaGraficobarras (dados, origem, tamanho, cor) {
-	//	if (dados.length() != cor.length()) {
-	//		alert("Erro! Vetor de dados de tamanho diferente do vetor de cores");
-	//	} else {
-	//		var y = 0; //posicao vertical da origem do retangulo
-	//		dados = porcentagem_para_decimal(dados);
-	//		for (var i = 0; i < dados.length(); i++) {
-	//			
-	//			pincel.fillStyle = cor[i];
-	//			pincel.fillRect()
-	//		}
-	//	}
-	//}
+	function desenhaGraficobarras (dados, origem, tamanho, cor) {
+		if (dados.length != cor.length) {
+			alert("Erro! Vetor de dados de tamanho diferente do vetor de cores");
+		} else {
+			var or = [origem[0], 0]; //posicao da origem dos retangulos
+			var tm = [tamanho[0], 0]; //tamanho dos retangulos
+			dados = porcentagem_para_decimal(dados);
+			for (var i = 0; i < dados.length; i++) {
+				tm[1] = dados[i] * tamanho[1]; //t_y é proporcional ao percentual
+				desenhaRetangulo(or, tm, cor[i]);
+				or[1] += dados[i] * tamanho[1]; //a origem do proximo retangulo vai aumentando para representar o empilhamento
+			}
+		}
+	}
 	
 	var tela = document.getElementById("meu_canvas");
 	var pincel = tela.getContext('2d');
@@ -46,12 +47,12 @@
 	//desenhaRetangulo(inicio, dimensoes, 'blue')
 	//desenhaTexto ('Funciona!', inicio)
 	porcentagens2015 = [50, 25, 20, 5];
-	porcentagens2015 = porcentagem_para_decimal(porcentagens2015);
-	for(var i = 0; i < porcentagens2015.length; i++) {
-		document.write("porcentagens2015[" + i + "] = " + porcentagens2015[i] + "<br>");
-	}
-	
-	//cores = ['blue', 'green', 'yellow', 'red'];
-	//desenhaGraficobarras (porcentagens2015, inicio, dimensoes, cores);
+	//porcentagens2015 = porcentagem_para_decimal(porcentagens2015);
+	//for(var i = 0; i < porcentagens2015.length; i++) {
+	//	document.write("porcentagens2015[" + i + "] = " + porcentagens2015[i] + "<br>");
+	//}
+	//
+	cores = ['blue', 'green', 'yellow', 'red'];
+	desenhaGraficobarras (porcentagens2015, inicio, dimensoes, cores);
 	
 </script>
