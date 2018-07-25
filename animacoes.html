@@ -7,6 +7,8 @@
 	pincel.fillStyle = 'lightgray';
 	pincel.fillRect(0, 0, 600, 400);
 	
+	var x = 0;
+	
 	function desenhaCirculo(x, y, raio) {
 	
 		pincel.fillStyle = 'blue';
@@ -20,9 +22,9 @@
 	}
 	
 	function atualizaTela() {
-		limpaTela();
-		desenhaCirculo(20, 20, 10);
 		x++;
+		limpaTela();
+		desenhaCirculo(x, 20, 10);
 	}
 
 	setInterval(atualizaTela, 10);
