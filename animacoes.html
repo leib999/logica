@@ -8,6 +8,7 @@
 	pincel.fillRect(0, 0, 600, 400);
 	
 	var x = 0;
+	var vel = 1;  //incremento; "velocidade" do circulo
 	
 	function desenhaCirculo(x, y, raio) {
 	
@@ -22,8 +23,15 @@
 	}
 	
 	function atualizaTela() {
-		x++;
-		x = x % 400; //mantém a coordenada do centro do circulo dentro do canvas
+		//x++;
+		//x = x % 400; //mantém a coordenada do centro do circulo dentro do canvas
+		x = x + vel;
+		if (x >= 400) {
+			vel = -1;
+		}
+		if (x <= 0) {
+			vel = 1;
+		}
 		limpaTela();
 		desenhaCirculo(x, 20, 10);
 	}
