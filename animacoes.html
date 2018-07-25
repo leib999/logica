@@ -23,6 +23,7 @@
 	
 	function atualizaTela() {
 		x++;
+		x = x % 400; //mantém a coordenada do centro do circulo dentro do canvas
 		limpaTela();
 		desenhaCirculo(x, 20, 10);
 	}
