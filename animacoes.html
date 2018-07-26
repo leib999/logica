@@ -24,22 +24,30 @@
 	}
 	
 	function somaVetorial (v1, v2) {
-		if (v1.length != v2.lenth) {
-			console.log("v1.length = " + v1.legth + ", v2.length = " + v2.length);
-			return "DEU MERDA, VETORES DE TAMANHOS DIFERENTES";
-		} else {
-			var soma;
+		console.log("SV: v1.length = " + v1.length + ", v2.length = " + v2.length);
+		if (v1.length == v2.length) {
+			console.log("SV: passou por aqui 1 x")
+			var soma = [0];
+			//inicializacao do array soma
+			for(var i = 1; i < v1.length; i++) {
+				soma.push(0);
+			}
+			console.log("SV: soma = [" + soma[0] + ", " + soma[1] + "]");
+			//soma vetorial
 			for(var i = 0; i < v1.length; i++) {
 				soma[i] = v1[i] + v2[i];
 			}
-			console.log("soma = [" + soma[0] + ", " + soma[1] + "]");
 			return soma;
+		} else {
+			console.log("SV: problemas");
+			return ["DEU MERDA, VETORES DE TAMANHOS DIFERENTES", "hmmm"];
 		}
 	}
 	
 	function atualizaTela() {
 		if (exec) {
-			console.log(pos[0] + ", " + pos[1]);
+			console.log("AT: " + pos[0] + ", " + pos[1]);
+			console.log("AT: pos.length = " + pos.length + ",vel.length = " + vel.length);
 			pos = somaVetorial (pos, vel);
 			if (pos[0] > 400) {
 				vel[0] = -1;
