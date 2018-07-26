@@ -9,13 +9,13 @@
 	
 	var exec = true;
 	var pos = [0, 0];
-	var vel = [1, 0];  //incremento; "velocidade" do circulo
+	var vel = [10, 10];  //incremento; "velocidade" do circulo
 	//console.log(pos[0] + ", " + pos[1]);
 	
-	function desenhaCirculo(x, y, raio) {
+	function desenhaCirculo(coords, raio) {
 		pincel.fillStyle = 'blue';
 		pincel.beginPath();
-		pincel.arc(x, y, raio, 0, 2 * Math.PI);
+		pincel.arc(coords[0], coords[1], raio, 0, 2 * Math.PI);
 		pincel.fill();
 	}
 	
@@ -24,39 +24,45 @@
 	}
 	
 	function somaVetorial (v1, v2) {
-		console.log("SV: v1.length = " + v1.length + ", v2.length = " + v2.length);
+		//console.log("SV: v1.length = " + v1.length + ", v2.length = " + v2.length);
 		if (v1.length == v2.length) {
-			console.log("SV: passou por aqui 1 x")
+			//console.log("SV: passou por aqui 1 x")
 			var soma = [0];
 			//inicializacao do array soma
 			for(var i = 1; i < v1.length; i++) {
 				soma.push(0);
 			}
-			console.log("SV: soma = [" + soma[0] + ", " + soma[1] + "]");
+			//console.log("SV: soma = [" + soma[0] + ", " + soma[1] + "]");
 			//soma vetorial
 			for(var i = 0; i < v1.length; i++) {
 				soma[i] = v1[i] + v2[i];
 			}
 			return soma;
 		} else {
-			console.log("SV: problemas");
+			//console.log("SV: problemas");
+			exec = false;
 			return ["DEU MERDA, VETORES DE TAMANHOS DIFERENTES", "hmmm"];
 		}
 	}
 	
+	function atualizaVelocidade (v) {
+		if ((pos[0] > 600)||(pos[0] < 0)) {
+			v[0] *= -1;
+		}
+		if ((pos[1] > 400)||(pos[1] < 0)) {
+			v[1] *= -1;
+		}
+		return v;
+	}
+	
 	function atualizaTela() {
 		if (exec) {
-			console.log("AT: " + pos[0] + ", " + pos[1]);
-			console.log("AT: pos.length = " + pos.length + ",vel.length = " + vel.length);
+			console.log("AT-pos: " + pos[0] + ", " + pos[1] + "; vel: " + vel[0] + ", " + vel[1]);
+			//console.log("AT: pos.length = " + pos.length + ",vel.length = " + vel.length);
 			pos = somaVetorial (pos, vel);
-			if (pos[0] > 400) {
-				vel[0] = -1;
-			}
-			if (pos[0] < 0) {
-				vel[0] = 1;
-			}
+			vel = atualizaVelocidade (vel);
 			limpaTela();
-			desenhaCirculo(pos[0], 20, 10);
+			desenhaCirculo(pos, 10);
 		}
 	}
 	
