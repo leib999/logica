@@ -8,11 +8,10 @@
 	pincel.fillRect(0, 0, 600, 400);
 	
 	var exec = true;
-	var x = 0;
-	var vel = 1;  //incremento; "velocidade" do circulo
+	var pos = [0, 0];
+	var vel = [1, 0];  //incremento; "velocidade" do circulo
 	
 	function desenhaCirculo(x, y, raio) {
-	
 		pincel.fillStyle = 'blue';
 		pincel.beginPath();
 		pincel.arc(x, y, raio, 0, 2 * Math.PI);
@@ -23,19 +22,29 @@
 		pincel.clearRect(0, 0, 600, 400);
 	}
 	
+	function somaVetorial (x, y) {
+		if (x.length != y.lenth) {
+			return "DEU MERDA, VETORES DE TAMANHOS DIFERENTES";
+		} else {
+			var soma;
+			for(var i = 0; i < x.length; i++) {
+				soma[i] = x[i] + y[i];
+			}
+			return soma;
+		}
+	}
+	
 	function atualizaTela() {
 		if (exec) {
-			//x++;
-			//x = x % 400; //mantém a coordenada do centro do circulo dentro do canvas
-			x = x + vel;
-			if (x >= 400) {
-				vel = -1;
+			pos = somaVetorial (pos, vel);
+			if (pos[0] >= 400) {
+				vel[0] = -1;
 			}
-			if (x <= 0) {
-				vel = 1;
+			if (pos[0] <= 0) {
+				vel[0] = 1;
 			}
 			limpaTela();
-			desenhaCirculo(x, 20, 10);
+			desenhaCirculo(pos[0], 20, 10);
 		}
 	}
 	
@@ -50,7 +59,6 @@
 	}
 	
 	setInterval(atualizaTela, 10);
-	
 	
 	var botao = document.querySelector('button');
 	botao.onclick = pausarResumir;
