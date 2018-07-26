@@ -22,14 +22,14 @@
 		pincel.clearRect(0, 0, 600, 400);
 	}
 	
-	function somaVetorial (x, y) {
-		if (x.length != y.lenth) {
-			console.log("x.length = " + x.legth + ", y.length = " + y.length);
+	function somaVetorial (v1, v2) {
+		if (v1.length != v2.lenth) {
+			console.log("v1.length = " + v1.legth + ", v2.length = " + v2.length);
 			return "DEU MERDA, VETORES DE TAMANHOS DIFERENTES";
 		} else {
 			var soma;
-			for(var i = 0; i < x.length; i++) {
-				soma[i] = x[i] + y[i];
+			for(var i = 0; i < v1.length; i++) {
+				soma[i] = v1[i] + v2[i];
 			}
 			console.log("soma = [" + soma[0] + ", " + soma[1] + "]");
 			return soma;
