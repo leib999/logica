@@ -10,6 +10,7 @@
 	var exec = true;
 	var pos = [0, 0];
 	var vel = [1, 0];  //incremento; "velocidade" do circulo
+	//console.log(pos[0] + ", " + pos[1]);
 	
 	function desenhaCirculo(x, y, raio) {
 		pincel.fillStyle = 'blue';
@@ -38,11 +39,12 @@
 	
 	function atualizaTela() {
 		if (exec) {
+			console.log(pos[0] + ", " + pos[1]);
 			pos = somaVetorial (pos, vel);
-			if (pos[0] >= 400) {
+			if (pos[0] > 400) {
 				vel[0] = -1;
 			}
-			if (pos[0] <= 0) {
+			if (pos[0] < 0) {
 				vel[0] = 1;
 			}
 			limpaTela();
